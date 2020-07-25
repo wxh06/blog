@@ -30,7 +30,7 @@ twitter_username: wxh06
 github_username:  wxh06
 
 # Build settings
-theme: minima
+remote_theme: StartBootstrap/startbootstrap-clean-blog-jekyll
 plugins:
   - jekyll-feed
 
