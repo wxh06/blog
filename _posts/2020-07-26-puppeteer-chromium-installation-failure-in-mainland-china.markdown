@@ -90,9 +90,9 @@ var downloadURLs = {
 修改 `PUPPETEER_DOWNLOAD_HOST` 环境变量：
 
 ```bash
-PUPPETEER_DOWNLOAD_HOST=https://storage.googleapis.com.cnpmjs.org  # 使用 cnpmjs.org 提供的反向代理（实时更新）
+export PUPPETEER_DOWNLOAD_HOST=https://storage.googleapis.com.cnpmjs.org  # 使用 cnpmjs.org 提供的反向代理（实时更新）
 # 或者
-PUPPETEER_DOWNLOAD_HOST=https://npm.taobao.org/mirrors  # 使用阿里淘宝的缓存镜像（定时更新）
+export PUPPETEER_DOWNLOAD_HOST=https://npm.taobao.org/mirrors  # 使用阿里淘宝的缓存镜像（定时更新）
 ```
 
 ### `.npmrc`
