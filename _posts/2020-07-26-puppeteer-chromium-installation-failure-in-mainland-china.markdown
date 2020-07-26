@@ -10,12 +10,6 @@ categories: javascript
 
 前段时间贡献 [AliasIO/wappalyzer][wappalyzer-gh]，按照 [Quick start][quick-start] [setup][] 运行 `yarn install` 的时候在 `[1/1] puppeteer` 花费了很长时间，最终由于安装 Chromium 失败而报错：`ERROR: Failed to download Chromium r686378!`
 
-<details><summary>
-
-`ERROR: Failed to download Chromium r686378! Set "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD" env variable to skip download.`
-
-</summary>
-
 ```
 ➜  RemoteWorking git:(master) yarn install
 yarn install v1.22.4
@@ -59,8 +53,6 @@ ERROR: Failed to download Chromium r686378! Set "PUPPETEER_SKIP_CHROMIUM_DOWNLOA
 info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
 ➜  RemoteWorking git:(master) 
 ```
-
-</details>
 
 ## 经过
 
