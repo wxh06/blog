@@ -31,7 +31,7 @@ twitter_username: wxh06
 github_username:  wxh06
 
 # Build settings
-remote_theme: StartBootstrap/startbootstrap-clean-blog-jekyll
+remote_theme: wxh06/startbootstrap-clean-blog-jekyll  # Forked from StartBootstrap/startbootstrap-clean-blog-jekyll
 paginate:           5
 paginate_path:      "/posts/page:num/"
 plugins:
