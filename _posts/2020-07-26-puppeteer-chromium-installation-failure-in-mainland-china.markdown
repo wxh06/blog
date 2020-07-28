@@ -4,6 +4,7 @@ title:      "中国大陆安装 Puppeteer Chromium 失败的解决方法"
 subtitle:   "使用镜像安装 Puppeteer Chromium"
 date:       2020-07-26 23:00:00 +0800
 categories: javascript
+background: https://developers.google.cn/web/tools/images/puppeteer.png
 ---
 
 ## 起因
