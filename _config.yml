@@ -30,6 +30,9 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: wxh06
 github_username:  wxh06
 
+# Add your google-analytics ID here to activate google analytics
+google_analytics:   UA-173984219-1 # out your google-analytics code
+
 # Build settings
 remote_theme: wxh06/startbootstrap-clean-blog-jekyll  # Forked from StartBootstrap/startbootstrap-clean-blog-jekyll
 paginate:           5
