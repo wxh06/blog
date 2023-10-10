@@ -3,5 +3,4 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: home
-background: 'https://cdn.jsdelivr.net/gh/StartBootstrap/startbootstrap-clean-blog-jekyll/img/bg-index.jpg'
 ---

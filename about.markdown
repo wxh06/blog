@@ -1,9 +1,7 @@
 ---
 layout: page
 title: About
-description: This is what I do.
 permalink: /about/
-background: 'https://cdn.jsdelivr.net/gh/StartBootstrap/startbootstrap-clean-blog-jekyll/img/bg-about.jpg'
 ---
 
 This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
