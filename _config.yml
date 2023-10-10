@@ -31,6 +31,9 @@ github_username:  wxh06
 
 author: 汪心禾
 
+disqus:
+  shortname: wangxinhe
+
 # Build settings
 theme: minima
 plugins:
