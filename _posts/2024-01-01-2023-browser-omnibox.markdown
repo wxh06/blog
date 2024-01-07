@@ -1,5 +1,6 @@
 ---
 layout: post
+slug: "2023"
 title: "2023 Browser Omnibox"
 date: 2024-01-01 23:49:50 +0800
 category: omnibox
@@ -9,7 +10,7 @@ locale: zh_CN
 
 模仿 [Imken 的 2023 浏览器补全年终总结](https://blog.imken.moe/archives/703)我也来搞一个。
 
-我今年暑假从 Google Chrome 换到 Firefox，9 月份的时候又因为 FF 没有视频硬件解码（看 b 站经常卡死）又换到了使用 Chromium 的 Arc，所以这里列举的实际上并不能代表一整年的浏览情况（例如本科申请的相关站点在这个学期被频繁访问）。
+我今年暑假从 Google Chrome 换到 Firefox，9 月份的时候又因为 FF 没有视频硬件解码（看 b 站经常卡死）又换到了基于 Chromium 的 Arc，所以这里列举的实际上并不能代表一整年的浏览情况（例如本科申请的相关站点在这个学期被频繁访问）。
 
 此外，为了避免当前打开的网页加上 Arc 奇怪的 Command Bar 补全算法污染结果，我们以 `arc://omnibox/` 中 Chromium 返回的查询结果为准。
 

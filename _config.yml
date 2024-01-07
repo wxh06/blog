@@ -28,8 +28,10 @@ author:
 #   Google search results) and in your feed.xml site description.
 # baseurl: "" # the subpath of your site, e.g. /blog
 # url: "" # the base hostname & protocol for your site, e.g. http://example.com
-google_analytics: G-PY9E7Z7XYP
+permalink: none
 show_excerpts: true
+
+google_analytics: G-PY9E7Z7XYP
 
 disqus:
   shortname: wangxinhe
