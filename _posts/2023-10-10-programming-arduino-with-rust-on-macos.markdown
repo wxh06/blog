@@ -2,8 +2,8 @@
 layout: post
 title: 使用 macOS 在 Arduino UNO 上运行 Rust
 date: 2023-10-10 19:25:45 +0800
-category: embedded
-tags: arduino rust macos
+category: [Embedded, Arduino]
+tags: rust macos
 locale: zh_CN
 ---
 

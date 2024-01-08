@@ -3,6 +3,7 @@ layout: post
 title: Luogu Tracker 开发日志（回忆）
 excerpt: 利用洛谷的低能 API 从零开始构建一个洛谷版 cftracker
 date: 2023-11-25 11:41:10 +0800
+category: [Projects, Luogu-related]
 tags: luogu go javascript typescript vue.js vite
 locale: zh_CN
 ---

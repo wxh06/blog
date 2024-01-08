@@ -1,10 +1,10 @@
 ---
 layout: post
-slug: "2023"
-title: "2023 Browser Omnibox"
+title: "2023 年终浏览器 Omnibox 补全回顾"
 date: 2024-01-01 23:49:50 +0800
-category: omnibox
+category: Omnibox
 tags: browser
+image: https://arc.net/og.png
 locale: zh_CN
 ---
 
