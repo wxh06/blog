@@ -42,7 +42,7 @@ typora-root-url: ../assets/img
 - [luogu-cli][luogu-cli]（半成品）
 - [lgtracker][lgtracker]
 
-虽说我 2019 年就开始学习 Go 了，但是到疫情时代快结束时才勉强把 [tour][go-tour] 基本过完一整遍，真正用 Go 写东西也是今年的事情了（去年四五月份的时候曾经帮 smallfang 调过一点 Go 版洛谷帖子保存站）。
+虽说我 2019 年就开始学习 Go 了，但是到疫情时代快结束时才勉强把 [tour][go-tour] 基本过完一整遍，真正用 Go 写东西也是今年的事情了（去年四五月份的时候曾经帮 @smallfangqwq 调过一点 Go 版洛谷帖子保存站）。
 
 最初写 [caddy-uwsgi-transport][caddy-uwsgi-transport]（还有更早之前被砍掉的 tpanel）的时候时跌跌撞撞，即使找到参考的代码也要花很长时间才能弄明白意思。写 luogu-cli 的过程中我还是收获颇丰的：一开始挑选 CLI 库（[cobra][cobra] v.s. [urfave/cli][urfave/cli]）时非常迷茫，但到最后已经敢于给上游的 Markdown 渲染库[提 pr](https://github.com/charmbracelet/glamour/pull/268) 了；此后甚至在 [lgracker][lgtracker] 里面还尝试用 Go 实现原本 Node.js 就能胜任的数据爬取功能~~强行创造伪需求~~。
 
@@ -50,7 +50,7 @@ typora-root-url: ../assets/img
 
 这是我今年的最后一个项目（因为是 12 月写的）。
 
-写上文提到的 [luogu-cli][luogu-cli] 的时候读库的代码，顺着 `go:generate` 找到了 [Generating code - The Go Programming Language](https://go.dev/blog/generate) 里提到的 goyacc，就跟着 IBM 的文档里[这篇年龄和我差不多大的文章](https://developer.ibm.com/tutorials/au-lexyacc/)学习了 Lex 和 Yacc，于是便萌生了写汇编语言 parser 的想法。
+写上文提到的 [luogu-cli][luogu-cli] 的时候读库的代码，顺着 `go:generate` 找到了 [Generating code - The Go Programming Language][go-generate] 里提到的 goyacc，就跟着 IBM 的文档里[这篇年龄和我差不多大的文章](https://developer.ibm.com/tutorials/au-lexyacc/)学习了 Lex 和 Yacc，于是便萌生了写汇编语言 parser 的想法。
 
 虽然由于种种原因，最终向实用性妥协没有实现 parser 功能，但在过程中我巩固了 C 与 C with class 的知识，学习的 CMake 解开了我曾经用 CLion 时的种种疑问，也对 FFI binding 有了一定的了解。
 
@@ -58,21 +58,21 @@ typora-root-url: ../assets/img
 
 此后我意识到对 CAIE 的考生来说更大的需求可能并不是“执行”而是“答题”（填 trace table），那为什么不选用交互更加方便的网页呢？我立刻想到了使用 Rust 编译到 wasm 在浏览器中跑大模拟。
 
-去年在群里受到 ucw 的耳濡目染决定开始学 Rust，但是没能坚持读完[《Rust 程序设计语言》](https://kaisery.github.io/trpl-zh-cn/)（甚至买了 2018 版英文纸质书）：前前后后数次想要开始学，每次都忘差不多了不得不从头开始重新读，最多也只读到了第 7 章。
+去年在群里受到 ucw 的耳濡目染决定开始学 Rust，但是没能坚持读完[《Rust 程序设计语言》][trpl-zh-cn]（甚至买了 2018 版英文纸质书）：前前后后数次想要开始学，每次都忘差不多了不得不从头开始重新读，最多也只读到了第 7 章。
 
-国庆的时候我开始尝试通过[写书后的练习题](https://github.com/wxh06/rust_book_projects/)来使知识进入我的脑子，但是最终发现还是不如做完整项目一边写一边查、在实践中学习来的扎实。事实上我最后确实是这么做的，在实现汇编器的过程中我也基本上能正常使用 Rust 了，甚至还学会了一点点过程宏。
+国庆的时候我开始尝试通过[写书后的练习题](https://github.com/wxh06/rust_book_projects)来使知识进入我的脑子，但是最终发现还是不如做完整项目一边写一边查、在实践中学习来的扎实。事实上我最后确实是这么做的，在实现汇编器的过程中我也基本上能正常使用 Rust 了，甚至还学会了一点点过程宏。
 
 ## 软件
 
 ### 操作系统
 
-暑假的时候在我的 Apple Silicon macOS 里编译 [OpenPose][openpose] 过程非常艰难，萌发了折腾一下桌面 Linux 的想法。受群友（fk 和 wl）影响我决定试试看 Arch Linux。最后以丢掉了原来 Windows 和 macOS 下所有数据并干碎融合硬盘 Fusion Drive 磁盘阵列告终。好消息是在磁盘列表里出现了一个 32GB 的 SSD 和剩下近 1TB 的 HDD，于是把 EFI 启动引导装在 SSD 上重新分区，总算成功在 iMac 上同时装上了 macOS Big Sur（再新的系统会很卡）、Windows 10（没有 TPM 不满足 11 的配置要求）还有 Arch Linux。
+暑假的时候在我的 Apple Silicon macOS 里编译 [OpenPose][openpose] 过程非常艰难，萌发了折腾一下桌面 Linux 的想法。受群友 fk @ForkKILLET 和 wl @AsakuraMizu 的影响我决定试试看 Arch Linux。最后以丢掉了原来 Windows 和 macOS 下所有数据并干碎融合硬盘 Fusion Drive 磁盘阵列告终。好消息是在磁盘列表里出现了一个 32GB 的 SSD 和剩下近 1TB 的 HDD，于是把 EFI 启动引导装在 SSD 上重新分区，总算成功在 iMac 上同时装上了 macOS Big Sur（再新的系统会很卡）、Windows 10（没有 TPM 不满足 11 的配置要求）还有 Arch Linux。
 
 ### 浏览器
 
 我在很长一段时间里一直是 Google Chrome 用户，今年暑假的时候因为 Linux 尝试换到了 Firefox。
 
-Firefox 自定义设置项非常丰富，开箱即用的 JSON 预览再开发时候很方便，此外 Send Tab to Device 功能还带来了非常优秀的跨设备体验；相比之下 Chrome 对应的功能延迟非常高，很多时候一分多钟才能收到。但 Firefox 在 Windows 以外的系统上甚至不支持视频硬件解码 / GPU 加速，看 Bilibili 视频的时候有明显卡顿（进度条的已播放部分填充会规律性断开，我在 macOS 还有 fk 在 Arch Linux 上都有遇到），不得不暂时换回 Chrome，恰好开学后因为住校也不再有强烈的跨设备转移标签页的需求。
+Firefox 自定义设置项非常丰富，开箱即用的 JSON 预览再开发时候很方便，此外 Send Tab to Device 功能还带来了非常优秀的跨设备体验；相比之下 Chrome 对应的功能延迟非常高，很多时候一分多钟才能收到。但 Firefox 在 Windows 以外的系统上甚至不支持视频硬件解码 / GPU 加速，看 Bilibili 视频的时候有明显卡顿（进度条的已播放部分填充会规律性断开，我在 macOS 还有 @ForkKILLET 在 Arch Linux 上都有遇到），不得不暂时换回 Chrome，恰好开学后因为住校也不再有强烈的跨设备转移标签页的需求。
 
 再后来？再后来换到了 [Arc][arc]，还是很香的～
 
@@ -108,7 +108,7 @@ OI 相关的 C/C++ 以及 Python 用的 CLion，学校计算机课的作业为�
 
 去年跨年的时候恰好拿完 Monument Valley 的全成就开始刷《纪念碑谷 2》。其实去年我在 iOS App Store 上其实买过一整套纪念碑谷，为了攒全成就重新在 Steam 上买了一份权当支持开发者了。我真的非常喜欢这个游戏的那种意境，半夜给人一种空灵感，印象尤其深刻的是第九章《斜坡》。
 
-这一年的前两个月是暑假，主要还是在玩 Celeste。《蔚蓝》是我在 fk 的强烈推荐下在 Steam 上买的第一个游戏。我看着攻略过了前 6 个章节，第 7 章在帮助模式下才通关的，后面的对本手残党来说实在太过困难只好后会有期咯。
+这一年的前两个月是暑假，主要还是在玩 Celeste。《蔚蓝》是我在 @ForkKILLET 的强烈推荐下在 Steam 上买的第一个游戏。我看着攻略过了前 6 个章节，第 7 章在帮助模式下才通关的，后面的对本手残党来说实在太过困难只好后会有期咯。
 
 一月份尝还试了很多新游戏，有 Miniverse 系列、Poly Bridge 系列、LoveChoice。
 
@@ -128,11 +128,11 @@ OI 相关的 C/C++ 以及 Python 用的 CLion，学校计算机课的作业为�
 
 ## 社交
 
-今年暑假成功面基了 o2、smallfang 和 老王。
+今年暑假成功面基了 @optimize-2、@smallfangqwq 和 老王。
 
 ![面基合照](IMG_4205@0.5x.jpg)
 
-在这一年里还认识了很多新的小伙伴，有 diyanqi、Imken 以及我室友的群友们（直到跨年的时候我才知道其中有三个人是 Fk 的初中同学！）。
+在这一年里还认识了很多新的小伙伴，有 @diyanqi、Imken @immccn123 以及我室友的群友们（直到跨年的时候我才知道其中有三个人是 @ForkKILLET 的初中同学！）。
 
 ## 旅行
 
@@ -142,13 +142,15 @@ OI 相关的 C/C++ 以及 Python 用的 CLion，学校计算机课的作业为�
 
 6 月份暑假开始的时候去了一趟广州，在“只有孙中山敢站在外面”的天气骑车去广州塔。
 
-![地图](IMG_7603.JPG)_8.47 公里户外单车_
+![地图](IMG_7603.jpg)
+_8.47 公里户外单车_
 
 ### 北京
 
-跟着台风一路从上海到北京，去参加上海人工智能实验室在 THU 办的一个夏令营~~但期间很不幸甲流发烧了好几天~~，顺便面基了 smallfang（刚在上海见过）和 Sulfuric Acid。
+跟着台风一路从上海到北京，去参加上海人工智能实验室在 THU 办的一个夏令营~~但期间很不幸甲流发烧了好几天~~，顺便面基了 @smallfangqwq（刚在上海见过）和 Sulfuric Acid。
 
-![2023 年浦育 AI 未来夏令营暨高校科学营](640.jpeg)_[2023 年浦育 AI 未来夏令营结营](https://mp.weixin.qq.com/s/2Ym3kKAvQDULCXAgLkSe6w)_
+![2023 年浦育 AI 未来夏令营暨高校科学营](640.jpeg)
+_[2023 年浦育 AI 未来夏令营结营](https://mp.weixin.qq.com/s/2Ym3kKAvQDULCXAgLkSe6w)_
 
 ## 别人家的年终总结
 
@@ -168,11 +170,12 @@ OI 相关的 C/C++ 以及 Python 用的 CLion，学校计算机课的作业为�
 [lgtracker]: https://github.com/wxh06/lgtracker
 [cobra]: https://github.com/spf13/cobra
 [urfave/cli]: https://github.com/urfave/cli
+[go-generate]: https://go.dev/blog/generate
 [cranelift]: https://cranelift.dev/
+[trpl-zh-cn]: https://kaisery.github.io/trpl-zh-cn/
 [openpose]: https://github.com/CMU-Perceptual-Computing-Lab/openpose
 [rime]: https://rime.im/
 [squirrel]: https://github.com/rime/squirrel
 [vscodevim]: https://aka.ms/vscodevim
 [arc]: https://arc.net/
 [steamyir]: https://s.team/y23/hfrrnwjg?l=schinese
-
