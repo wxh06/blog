@@ -1,0 +1,178 @@
+---
+title: 我的 2023
+subtitle: 2023 年度总结
+img_path: /assets/img/
+date: 2024-01-15 20:55:30 +0800
+typora-root-url: ../assets/img
+---
+
+看见大家（比如 [Soha](https://soha.moe/tag/%E6%96%B0%E5%85%AC%E5%85%83%E5%B9%B4/)）都坚持年年写年度总结和新年展望，我也想要给自己留下点回忆。这篇文章花了我很长时间才完工，但也还远没有能够事无巨细讲述我想要写下的方方面面。现在 2024 的一月已经过去一半了，谨以此文纪念过去的 2023 年。
+
+## 学业
+
+2023 对我来说是焦虑的一年。
+
+自从 2022 学年起学校允许使用电子产品了之后，上课摆了个电脑在桌上不认真听讲是我的常态。作业经常完不成，也没有保证充足的睡眠。
+
+年中的时候面临 CAIE 的大考，拖延症极其严重的我到考前才意识到根本复习不过来，网课期间不论是有机化学还是数学都落下了不少课。无形之中我也把相当大的压力传递给了我身边的人，容我在此再说一声抱歉。好在最后的结果不算太坏，但是拖延与不听讲的毛病依然没有得到改进。
+
+希望我在新的一年里能够补齐文化课，跟上课堂节奏考出好成绩。
+
+### 申请
+
+申请方向主要是计算机科学，但 UCL 申请了 [Robotics and Artificial Intelligence](https://www.ucl.ac.uk/prospective-students/undergraduate/degrees/robotics-and-artificial-intelligence-meng)。原本是用 University of Bristol 保底的，结果先拿到了爱丁堡大学 [Artificial Intelligence and Computer Science](https://www.ed.ac.uk/studying/undergraduate/degrees/index.php?action=view&code=GG47) 的 conditional offer。
+
+## 开发
+
+今年在编程语言方面略有长进，学了很多新东西。重拾 Go、继续学 Rust，Vue.js 的知识更新到了版本 3，还学了 Lex/Yacc、CMake、WebAssembly Text Format 和一点点 LLVM intermediate representation。
+
+今年的关键词或许是“实践”，在写项目的过程中能感受到自己成长了很多。
+
+### 前端
+
+今年暑假和女朋友一起学了一遍 Vue 3。我意识到在教别人编程的方面欠缺还是很大，需要改进。
+
+这一年里主要都在写 TypeScript，[洛谷帖子存档][luogu-discussion-archive]是今年写过工程量最大也是最受欢迎的项目。
+
+今年三月的时候将我的个人主页[迁移到了 Astro](https://github.com/wxh06/wxh.im/commit/3330073a246bab4a1cde43a8d1bdbbae5626516c)，七月又因为 Astro 没有前端路由且配套工具链不成熟[回到了 Next.js](https://github.com/wxh06/wxh.im/commit/0a1b40f9ba04b65f72e73947e70bc8d5468b124d) 并成为了 Astro 黑。12 月时经 qyz 提醒发现 Astro 已经推出了 [`<ViewTransitions />` 视图过渡][view-transitions]，对比后我认为 Astro 相比 Next.js 更加符合我静态页面的需求，于是再次[换到 Astro](https://github.com/wxh06/wxh.im/commit/ca7c532cc98b2820f99e7832b7dca7a7578a2020)。
+
+### Go 相关
+
+- [caddy-uwsgi-transport][caddy-uwsgi-transport]
+- [luogu-cli][luogu-cli]（半成品）
+- [lgtracker][lgtracker]
+
+虽说我 2019 年就开始学习 Go 了，但是到疫情时代快结束时才勉强把 [tour][go-tour] 基本过完一整遍，真正用 Go 写东西也是今年的事情了（去年四五月份的时候曾经帮 smallfang 调过一点 Go 版洛谷帖子保存站）。
+
+最初写 [caddy-uwsgi-transport][caddy-uwsgi-transport]（还有更早之前被砍掉的 tpanel）的时候时跌跌撞撞，即使找到参考的代码也要花很长时间才能弄明白意思。写 luogu-cli 的过程中我还是收获颇丰的：一开始挑选 CLI 库（[cobra][cobra] v.s. [urfave/cli][urfave/cli]）时非常迷茫，但到最后已经敢于给上游的 Markdown 渲染库[提 pr](https://github.com/charmbracelet/glamour/pull/268) 了；此后甚至在 [lgracker][lgtracker] 里面还尝试用 Go 实现原本 Node.js 就能胜任的数据爬取功能~~强行创造伪需求~~。
+
+### CAIE Assembler
+
+这是我今年的最后一个项目（因为是 12 月写的）。
+
+写上文提到的 [luogu-cli][luogu-cli] 的时候读库的代码，顺着 `go:generate` 找到了 [Generating code - The Go Programming Language](https://go.dev/blog/generate) 里提到的 goyacc，就跟着 IBM 的文档里[这篇年龄和我差不多大的文章](https://developer.ibm.com/tutorials/au-lexyacc/)学习了 Lex 和 Yacc，于是便萌生了写汇编语言 parser 的想法。
+
+虽然由于种种原因，最终向实用性妥协没有实现 parser 功能，但在过程中我巩固了 C 与 C with class 的知识，学习的 CMake 解开了我曾经用 CLion 时的种种疑问，也对 FFI binding 有了一定的了解。
+
+既然写的是汇编器，我原本希望目标代码能是某种真实指令集的机器码，但又为了兼容多个平台于是开始翻阅 LLVM IR 与 WebAssembly 的文档。在跟着 MDN 学习了 WebAssembly Text Format 之后我发现与我设想的 target 大相径庭，LLVM 的中间表示为了方便优化有诸多限制；用 Rust 实现的 [Cranelift][cranelift] 似乎满足我的需求，但没有简单点的教程文档又太长，就暂时搁置了输出 target 的想法。
+
+此后我意识到对 CAIE 的考生来说更大的需求可能并不是“执行”而是“答题”（填 trace table），那为什么不选用交互更加方便的网页呢？我立刻想到了使用 Rust 编译到 wasm 在浏览器中跑大模拟。
+
+去年在群里受到 ucw 的耳濡目染决定开始学 Rust，但是没能坚持读完[《Rust 程序设计语言》](https://kaisery.github.io/trpl-zh-cn/)（甚至买了 2018 版英文纸质书）：前前后后数次想要开始学，每次都忘差不多了不得不从头开始重新读，最多也只读到了第 7 章。
+
+国庆的时候我开始尝试通过[写书后的练习题](https://github.com/wxh06/rust_book_projects/)来使知识进入我的脑子，但是最终发现还是不如做完整项目一边写一边查、在实践中学习来的扎实。事实上我最后确实是这么做的，在实现汇编器的过程中我也基本上能正常使用 Rust 了，甚至还学会了一点点过程宏。
+
+## 软件
+
+### 操作系统
+
+暑假的时候在我的 Apple Silicon macOS 里编译 [OpenPose][openpose] 过程非常艰难，萌发了折腾一下桌面 Linux 的想法。受群友（fk 和 wl）影响我决定试试看 Arch Linux。最后以丢掉了原来 Windows 和 macOS 下所有数据并干碎融合硬盘 Fusion Drive 磁盘阵列告终。好消息是在磁盘列表里出现了一个 32GB 的 SSD 和剩下近 1TB 的 HDD，于是把 EFI 启动引导装在 SSD 上重新分区，总算成功在 iMac 上同时装上了 macOS Big Sur（再新的系统会很卡）、Windows 10（没有 TPM 不满足 11 的配置要求）还有 Arch Linux。
+
+### 浏览器
+
+我在很长一段时间里一直是 Google Chrome 用户，今年暑假的时候因为 Linux 尝试换到了 Firefox。
+
+Firefox 自定义设置项非常丰富，开箱即用的 JSON 预览再开发时候很方便，此外 Send Tab to Device 功能还带来了非常优秀的跨设备体验；相比之下 Chrome 对应的功能延迟非常高，很多时候一分多钟才能收到。但 Firefox 在 Windows 以外的系统上甚至不支持视频硬件解码 / GPU 加速，看 Bilibili 视频的时候有明显卡顿（进度条的已播放部分填充会规律性断开，我在 macOS 还有 fk 在 Arch Linux 上都有遇到），不得不暂时换回 Chrome，恰好开学后因为住校也不再有强烈的跨设备转移标签页的需求。
+
+再后来？再后来换到了 [Arc][arc]，还是很香的～
+
+### 输入法
+
+Vim 下中英文切换的问题让我苦恼很久了，我了解到[鼠须管][squirrel]有 vim_mode，恰好群友 Jason Xing 也一直在用这个输入法，于是体验了一段时间的 [Rime][rime]。
+
+我去年学的双拼，现在形成了肌肉记忆已经很难再回到全拼。这样确实会带来一些不便：比如别人要在我手机上打字时候切换输入法会显得非常不便；另外搜索引擎的拼音补全也基本残废。与 macOS 原生的输入法不同，Rime 的双拼会自动展开到全拼，在搜索引擎补全中非常管用。
+
+但 Rime 的词库实在简陋得让人难以接受，最终我还是换回了系统输入法。
+
+### IDE
+
+今年学会了 Vim 键位，给 Visual Studio Code 和 JetBrains IDEs 都用上了 Vim 插件。
+
+OI 相关的 C/C++ 以及 Python 用的 CLion，学校计算机课的作业为了省事就用 PyCharm，其它语言都是 Visual Studio Code 和 JetBrains 系列的混用。VSCode 最大的问题是 [Vim 插件][vscodevim]太烂，连按几下 <kbd>u</kbd> 历史记录全乱掉；不全用 JB 的主要原因还是有些语言支持实在太不给力了（比如 [WebStrom 里面 Astro 的 TypeScript 报错](https://youtrack.jetbrains.com/issue/WEB-59503)，GoLand 依赖飘红，RustRover 全是 bug 几乎不可用）。
+
+### Disassembler
+
+年底的时候有在学习一些反汇编，主要用到了 IDA 和 Hopper。
+
+## 游戏
+
+曾经的我几乎不碰任何游戏，但现在在大家的影响下终于体会到了游戏的乐趣。我觉得今年的关键词是：“菜”，所以菜就要多练（
+
+### Steam
+
+看了[年度回顾][steamyir]才发现今年原来玩了这么多游戏！
+
+![wangxinhe 的 2023 年 STEAM 年度回顾](https://shared.cloudflare.steamstatic.com/social_sharing/replay2023/eef7e6b9f3a9414d6af08efd175c23d9f6643fde.png) _[wangxinhe 的 2023 年 STEAM 年度回顾][steamyir]_
+
+🥰今年和女朋友玩完了 It takes two 还有 Overcooked! 2 的主世界关卡，是真的很喜欢的两个游戏！
+
+去年跨年的时候恰好拿完 Monument Valley 的全成就开始刷《纪念碑谷 2》。其实去年我在 iOS App Store 上其实买过一整套纪念碑谷，为了攒全成就重新在 Steam 上买了一份权当支持开发者了。我真的非常喜欢这个游戏的那种意境，半夜给人一种空灵感，印象尤其深刻的是第九章《斜坡》。
+
+这一年的前两个月是暑假，主要还是在玩 Celeste。《蔚蓝》是我在 fk 的强烈推荐下在 Steam 上买的第一个游戏。我看着攻略过了前 6 个章节，第 7 章在帮助模式下才通关的，后面的对本手残党来说实在太过困难只好后会有期咯。
+
+一月份尝还试了很多新游戏，有 Miniverse 系列、Poly Bridge 系列、LoveChoice。
+
+紧接着就是模考前三月四月，先玩的空洞骑士，但是被卡在大黄蜂了没过去；换 Ori 开的简单操作难度并不太高，跟着教程过了不少。大考前还速通完了《画中世界》，暑假又通完了《文字游戏》。
+
+9 月份在室友的推荐下开始玩了一段时间 Slime Rancher，10 月份又玩了一段时间 Car Mechanic Simulator 2018。Terraria 是寝室大家一起开始联机玩的，但是我选课比较多又菜进度落下蛮多，很遗憾最终没有通关。
+
+今年还玩了 Civilization VI 和 Stellaris，这两个游戏都很适合联机。《文明 6》我跟着[这篇教程](https://www.zhihu.com/question/398650790/answer/2494888336)赢得了王子难度的宗教胜利，后来联机玩风云变化的时候才发现有没有 DLC 真的是完全两个不同的游戏；而《群星》难度太高了，我自己独立玩还是相当困难。
+
+### 移动端
+
+- 原神
+- 梦想小镇
+- Phigros
+- 跳舞的线 / Dancing Line
+- 滚动的天空
+
+## 社交
+
+今年暑假成功面基了 o2、smallfang 和 老王。
+
+![面基合照](IMG_4205@0.5x.jpg)
+
+在这一年里还认识了很多新的小伙伴，有 diyanqi、Imken 以及我室友的群友们（直到跨年的时候我才知道其中有三个人是 Fk 的初中同学！）。
+
+## 旅行
+
+今年两次春游分别去了欢乐谷和迪士尼；秋游还是去的迪士尼。
+
+### 广州
+
+6 月份暑假开始的时候去了一趟广州，在“只有孙中山敢站在外面”的天气骑车去广州塔。
+
+![地图](IMG_7603.JPG)_8.47 公里户外单车_
+
+### 北京
+
+跟着台风一路从上海到北京，去参加上海人工智能实验室在 THU 办的一个夏令营~~但期间很不幸甲流发烧了好几天~~，顺便面基了 smallfang（刚在上海见过）和 Sulfuric Acid。
+
+![2023 年浦育 AI 未来夏令营暨高校科学营](640.jpeg)_[2023 年浦育 AI 未来夏令营结营](https://mp.weixin.qq.com/s/2Ym3kKAvQDULCXAgLkSe6w)_
+
+## 别人家的年终总结
+
+不妨来看看这些：
+
+- [2023 平稳过渡 - DIYgod](https://diygod.cc/2023)
+- [2024爱人爱事 - 海上的宫殿](https://soha.moe/post/hello-2024.html)
+- [愿此去前路皆坦途 —— 我的 2023 年度总结 - 宝硕博客](https://blog.baoshuo.ren/post/goodbye-2023/)
+- [Imken 的 2023 浏览器补全年终总结 - Imken发电厂](https://blog.imken.moe/archives/703)
+- [2023年度总结 \| Dignite's Blog! - 学习生活小笔记](https://www.amzcd.top/posts/2023%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/)
+
+[view-transitions]: https://docs-git-v3-docs-unmaintained-astrodotbuild.vercel.app/zh-cn/guides/view-transitions/
+[luogu-discussion-archive]: https://github.com/wxh06/luogu-discussion-archive
+[go-tour]: https://tour.golang.org/
+[caddy-uwsgi-transport]: https://github.com/wxh06/caddy-uwsgi-transport
+[luogu-cli]: https://github.com/wxh06/luogu-cli
+[lgtracker]: https://github.com/wxh06/lgtracker
+[cobra]: https://github.com/spf13/cobra
+[urfave/cli]: https://github.com/urfave/cli
+[cranelift]: https://cranelift.dev/
+[openpose]: https://github.com/CMU-Perceptual-Computing-Lab/openpose
+[rime]: https://rime.im/
+[squirrel]: https://github.com/rime/squirrel
+[vscodevim]: https://aka.ms/vscodevim
+[arc]: https://arc.net/
+[steamyir]: https://s.team/y23/hfrrnwjg?l=schinese
+
