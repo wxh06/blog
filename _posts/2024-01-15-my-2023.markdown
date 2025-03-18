@@ -1,7 +1,7 @@
 ---
 title: 我的 2023
 subtitle: 2023 年度总结
-img_path: /assets/img/
+media_subpath: /assets/img/
 date: 2024-01-15 20:55:30 +0800
 typora-root-url: ../assets/img
 ---
